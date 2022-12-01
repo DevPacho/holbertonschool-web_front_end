@@ -1,1 +1,2 @@
-# Specialization in FullStack Web Development! - Frontend 🎨🤩⚡
+# Specialization in FullStack Web Development!
+# Frontend 🎨🤩⚡
