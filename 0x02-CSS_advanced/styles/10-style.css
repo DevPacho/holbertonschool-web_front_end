@@ -68,8 +68,7 @@ a {
 }
 
 .section-header {
-  display: flex;
-  justify-content: var(--section-header-align);
+  text-align: var(--section-header-align);
 }
 
 .section-tagline {
