@@ -43,7 +43,7 @@
   --color-dark-grey: #353535;
 }
 
-* {
+*, *:before, *:after {
   box-sizing: border-box;
 }
 
