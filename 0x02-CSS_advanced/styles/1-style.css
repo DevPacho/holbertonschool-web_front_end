@@ -1,5 +1,5 @@
 /* Sets the behavior for a scrolling box when scrolling is triggered by the navigation or CSSOM scrolling APIs */
 
 html {
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
 }
