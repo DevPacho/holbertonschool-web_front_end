@@ -209,4 +209,5 @@ ul.row {
 .row::after {
   display: table;
   content: "";
+  clear: both;
 }
