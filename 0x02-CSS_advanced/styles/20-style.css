@@ -207,7 +207,7 @@ ul.row {
 }
 
 .row::after {
-  display: table;
+  display: inline-table;
   grid-row: auto;
   float: none;
 }
