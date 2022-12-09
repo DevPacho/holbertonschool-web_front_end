@@ -206,7 +206,7 @@ ul.row {
   text-align: right;
 }
 
-.row::after {
+.row::after:empty {
   display: table;
   float: none;
 }
