@@ -207,6 +207,6 @@ ul.row {
 }
 
 .row::after {
-  display: table-row;
+  display: table;
   float: none;
 }
