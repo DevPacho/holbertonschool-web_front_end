@@ -208,5 +208,6 @@ ul.row {
 
 .row::after {
   display: table;
+  content: none;
   float: none;
 }
