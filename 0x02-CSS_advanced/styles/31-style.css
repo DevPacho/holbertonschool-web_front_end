@@ -396,7 +396,7 @@ ul.row {
 .card-testimonial .card-quote::before {
   content: \201C;
   position: absolute;
-  left: -4.5rem;
+  vertical-align: -4.5rem;
   top: -1rem;
   color: #efeded;
   font-size: 10rem;
