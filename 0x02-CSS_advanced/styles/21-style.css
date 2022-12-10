@@ -217,12 +217,7 @@ ul.row {
   padding: 0.5rem;
 }
 
-[class^="col-1-3"] {
-  float: none;
-  padding: 0;
-}
-
-[class^="col-1-2"] {
+[class^="col-1-2"], [class^="col-1-3"] {
   float: none;
   padding: 0;
 }
