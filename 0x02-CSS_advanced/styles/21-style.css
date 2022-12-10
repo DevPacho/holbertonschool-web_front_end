@@ -212,8 +212,8 @@ ul.row {
   clear: both;
 }
 
-[attribute*="col-"] {
+[attribute^="col-"] {
   float: left;
   padding: 0.5rem;
-  
+
 }
