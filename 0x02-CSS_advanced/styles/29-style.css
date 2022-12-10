@@ -217,10 +217,10 @@ a:active {
   top: 0;
   background-color: var(--color-white);
   width: 0;
-  height: 0.02rem;
+  height: 0.2rem;
 }
 
-.nav .nav-link .nav-item:hover {
+.nav .nav-link::before .nav-item:hover {
   background-color: var(--color-primary);
   width: 100%;
 }
