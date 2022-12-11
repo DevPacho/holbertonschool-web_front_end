@@ -1,0 +1,15 @@
+/* Import concept in SASS */
+
+@import "_10-colors";
+
+.red {
+  color: $red;
+}
+
+.green {
+  color: $green;
+}
+
+.blue {
+  color: $blue;
+}
