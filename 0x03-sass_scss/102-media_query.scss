@@ -1,0 +1,25 @@
+/* More media queries */
+
+$mobile: 320px;
+$tablet: 640px;
+$laptop: 960px;
+
+h1 {
+  font-size: 20px;
+
+  @media screen and (max-width: $laptop) {
+    font-size: 18px;
+  }
+
+  @media screen and (max-width: $tablet) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: $mobile) {
+    font-size: 14px;
+
+    .small {
+      color: #1D1D1D;
+    }
+  }
+}
