@@ -1,0 +1,13 @@
+/* Media queries */
+
+$small: 320px;
+
+h1 {
+  font-size: 20px;
+
+  @media screen and (max-width: $small) {
+    h1 {
+      font-size: 14px;
+    }
+  }
+}
