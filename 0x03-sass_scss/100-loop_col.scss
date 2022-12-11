@@ -4,6 +4,6 @@ $columns: 4;
 
 @for $index from 1 through $columns {
     .col-#{$index} {
-      width: 100% / $index;
+      width: (100% / $index);
   }
 }
