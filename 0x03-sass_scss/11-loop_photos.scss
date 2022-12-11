@@ -1,0 +1,10 @@
+/* Foreach loop but in SASS */
+
+@import "_11-photos";
+
+@each $name in $list-names {
+  .photo-#{$name} {
+    background-image: url("photos/#{$name}.jpg");
+    background-repeat: no-repeat;
+  }
+}
