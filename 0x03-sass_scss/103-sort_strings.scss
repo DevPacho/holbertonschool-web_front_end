@@ -22,7 +22,7 @@ $default-order: "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" 
 }
 
 @function _swap($list, $a, $b) {
-  @if abs($a) > length($list) or abs($b) > length($list) {
+  @if abs($a)>length($list) or abs($b)>length($list) {
     @return $list;
   }
 
@@ -35,7 +35,7 @@ $default-order: "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" 
 @function bubble-sort($list, $order: $default-order) {
   @for $i from 1 through length($list) {
     @for $j from $i through 1 {
-      @if $j > 1 and _str-compare(nth($list, $j), nth($list, $j - 1), $order) {
+      @if $j >1 and _str-compare(nth($list, $j), nth($list, $j - 1), $order) {
         $list: _swap($list, $j, $j - 1);
       }
     }
@@ -45,6 +45,6 @@ $default-order: "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" 
 }
 
 $list: $list_to_sort;
-$sorted_list: bubble-sort($list, $default-order);
+$sort: bubble-sort($list, $default-order);
 
-@debug $sorted_list;
+@debug $sort;
