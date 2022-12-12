@@ -48,5 +48,4 @@ $default-order: "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" 
   @return $list;
 }
 
-$sorted-list: bubble-sort($list_to_sort, $default-order);
-@debug $sorted-list;
+@debug bubble-sort($list_to_sort, $default-order);
