@@ -2,9 +2,13 @@
 
 @import "103-sort_list";
 
+/// @type List
 $default-order: "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z" !default;
 
 @function _str-compare($a, $b, $order) {
+  @if type-of($a)=="number" and type-of($b)=="number" {
+    @return $a < $b;
+  }
 
   $a: to-lower-case($a + unquote(""));
   $b: to-lower-case($b + unquote(""));
@@ -22,7 +26,7 @@ $default-order: "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" 
 }
 
 @function _swap($list, $a, $b) {
-  @if abs($a)>length($list) or abs($b)>length($list) {
+  @if abs($a) > length($list) or abs($b) > length($list) {
     @return $list;
   }
 
@@ -35,7 +39,7 @@ $default-order: "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" 
 @function bubble-sort($list, $order: $default-order) {
   @for $i from 1 through length($list) {
     @for $j from $i through 1 {
-      @if $j >1 and _str-compare(nth($list, $j), nth($list, $j - 1), $order) {
+      @if $j > 1 and _str-compare(nth($list, $j), nth($list, $j - 1), $order) {
         $list: _swap($list, $j, $j - 1);
       }
     }
@@ -44,7 +48,5 @@ $default-order: "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" 
   @return $list;
 }
 
-$list: $list_to_sort;
-$sort: bubble-sort($list, $default-order);
-
-@debug $sort;
+$sorted_list: bubble-sort($list_to_sort, $default-order);
+@debug $sorted_list;
