@@ -873,7 +873,6 @@ label {
   padding: 0 0 .5rem;
 }
 
-form
 input[type="text"],
 input[type="email"],
 textarea {
@@ -887,13 +886,11 @@ textarea {
   outline: 0;
 }
 
-form
 input[type="text"],
 input[type="email"] {
   padding-right: 3rem;
 }
 
-form
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
