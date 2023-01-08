@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Holberton - Web Stack - Bootstrap</title>
+  <meta name="description" content="Bootstrap is a free and open-source CSS framework">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <!-- First line - display blocks in columns when the screen is large (992px) -->
+  <div class="text-center text-white row">
+    <div class="p-2 bg-primary col-lg">Primary</div>
+    <div class="p-2 bg-success col-lg">Success</div>
+    <div class="p-2 bg-danger col-lg">Danger</div>
+    <div class="p-2 bg-warning col-lg">Warning</div>
+  </div>
+
+  <hr />
+
+  <!-- Second line - display blocks in columns when the screen is small (576px) -->
+  <div class="text-center text-white row">
+    <div class="p-2 bg-primary col-sm">Primary</div>
+    <div class="p-2 bg-success col-sm">Success</div>
+    <div class="p-2 bg-danger col-sm">Danger</div>
+    <div class="p-2 bg-warning col-sm">Warning</div>
+  </div>
+
+  <hr />
+
+  <!-- Third line - the sum of the size in which the columns are distributed must always be 12, which is the maximum allowed by Bootstrap -->
+  <div class="text-center text-white row">
+    <div class="p-2 bg-primary col-lg-2">Primary</div>
+    <div class="p-2 bg-success col-lg-4">Success</div>
+    <div class="p-2 bg-danger col-lg-6">Danger</div>
+  </div>
+
+  <hr />
+
+  <!-- Fourth line - different columns order based on screen size (https://stackoverflow.com/questions/54338049/bootstrap-4x-can-you-change-column-order-based-on-viewport-size) & mobile first! -->
+  <div class="text-center text-white row">
+    <div class="p-2 bg-primary col order-4 order-md-3 order-lg-2 order-xl-1">Primary</div>
+    <div class="p-2 bg-success col order-1 order-md-4 order-lg-3 order-xl-2">Success</div>
+    <div class="p-2 bg-danger col order-2 order-md-1 order-lg-4 order-xl-3">Danger</div>
+    <div class="p-2 bg-warning col order-3 order-md-2 order-lg-1 order-xl-4">Warning</div>
+  </div>
+
+  <hr />
+
+  <!-- Fifth line - justify items along the container’s main axis such that there is an equal amount of space between each item -->
+  <div class="text-center text-white row d-flex justify-content-between">
+    <div class="p-2 bg-primary col-md-2">Primary</div>
+    <div class="p-2 bg-success col-md-2">Success</div>
+  </div>
+
+  <hr />
+
+  <!-- Last line - the "offset" concept learned in the MERN course served a purpose -->
+  <div class="text-center text-white row d-flex justify-content-between">
+    <div class="p-2 bg-primary col-md-2">Primary</div>
+    <div class="p-2 bg-success col-md-2 offset-md-4">Success</div>
+    <div class="p-2 bg-danger col-md-2 offset-md-2">Danger</div>
+  </div>
+
+</body>
+
+</html>
