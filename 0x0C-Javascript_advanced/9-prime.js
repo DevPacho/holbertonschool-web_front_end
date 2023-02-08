@@ -18,5 +18,9 @@ function countPrimeNumbers() {
 
 console.log(countPrimeNumbers());
 
-const executionTime = performance.now();
-console.log(`Execution time of printing countPrimeNumbers was ${executionTime} miliseconds`);
+const timeBeforeExecution = performance.now();
+countPrimeNumbers();
+const timeAfterExecution = performance.now();
+
+const totalExecutionTime = timeAfterExecution - timeBeforeExecution
+console.log(`Execution time of printing countPrimeNumbers was ${totalExecutionTime} miliseconds`);
