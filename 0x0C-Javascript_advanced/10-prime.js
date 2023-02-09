@@ -19,9 +19,7 @@ function countPrimeNumbers() {
 console.log(countPrimeNumbers());
 
 const timeBeforeExecution = performance.now();
-for (let times = 0; times <= 100; times++) {
-  countPrimeNumbers();
-}
+for (let times = 0; times <= 100; times++) countPrimeNumbers();
 const timeAfterExecution = performance.now();
 
 const totalExecutionTime = timeAfterExecution - timeBeforeExecution
