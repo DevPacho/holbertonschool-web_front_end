@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+    integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous">
+    </script>
+
+  <title>2. Creating multiple DOM elements at once</title>
+
+</head>
+
+<body>
+
+  <script type="application/javascript">
+
+    const createFamilyTree = () => {
+      const namesTable =
+      `
+      <table>
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Guillaume</td>
+            <td>Salva</td>
+          </tr>
+          <tr>
+            <td>Paulette</td>
+            <td>Salva</td>
+          </tr>
+          <tr>
+            <td>Antoine</td>
+            <td>Salva</td>
+          </tr>
+        </tbody>
+      </table>
+      `
+
+      $("body").append(namesTable);
+    }
+
+    $(document).ready(() => {
+      createFamilyTree();
+    })
+
+  </script>
+
+</body>
+
+</html>
