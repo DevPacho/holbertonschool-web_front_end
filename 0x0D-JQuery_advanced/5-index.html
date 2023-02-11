@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+    integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous">
+    </script>
+
+  <title>5. Click attribute and remove function</title>
+
+</head>
+
+<body>
+
+  <script type="application/javascript">
+
+    const createFamilyTree = () => {
+      $("body").append("<table></table>");
+      $("table").append("<tr><th>Firstname</th><th>Lastname</th></tr>");
+      $("table").append("<tbody></tbody>");
+    }
+
+    const addNewMember = (firstname, lastName) => {
+      $("tbody")
+        .append($("<tr></tr>")
+        .append($("<td></td>").text(firstname),
+          $("<td></td>").text(lastName),
+          $("<td></td>").text("(x)").css({
+
+            "background-color": "orange",
+            "cursor": "pointer"
+    
+          }).click(function() {
+            $(this).closest("tr").remove();
+          })));
+    }
+
+    $(document).ready(() => {
+      createFamilyTree();
+      addNewMember("Guillaume", "Salva");
+      addNewMember("Arielle", "Snizt");
+      addNewMember("Fanette", "Snizt");
+      addNewMember("Gerard", "Snizt");
+      addNewMember("Victor", "Salva");
+    })
+
+  </script>
+
+</body>
+
+</html>
