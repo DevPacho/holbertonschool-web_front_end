@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+    integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous">
+    </script>
+
+  <title>4. HTML function</title>
+
+</head>
+
+<body>
+
+  <script type="application/javascript">
+
+    const createFamilyTree = () => {
+
+      $("body").append("<table></table>");
+      $("table").append("<tr><th>Firstname</th><th>Lastname</th></tr>");
+      $("table").append("<tbody></tbody>");
+      $("tbody").append($("<tr></tr>").append($("<td></td>").text("Guillaume"), $("<td></td>").text("Salva")));
+      $("tbody").append($("<tr></tr>").append($("<td></td>").text("Paulette"), $("<td></td>").text("Salva")));
+      $("tbody").append($("<tr></tr>").append($("<td></td>").text("Antoine"), $("<td></td>").text("Salva")));
+
+    }
+
+    const replaceFamilyTree = () => {
+      $("tbody").html($("<tr></tr>").append($("<td></td>").text("Gerard"), $("<td></td>").text("Bonissa")));
+    }
+
+    $(document).ready(() => {
+      createFamilyTree();
+      replaceFamilyTree();
+    })
+
+  </script>
+
+</body>
+
+</html>
