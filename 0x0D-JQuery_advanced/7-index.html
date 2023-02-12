@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <!-- [CHANGED] Current JQuery version that supports AJAX correctly -->
+  <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous">
+  </script>
+
+  <title>7. Query - Setup your dev environment</title>
+
+</head>
+
+<body>
+
+  <script type="application/javascript">
+
+    const createSearchForm = () => {
+      $("body").append(
+        `
+          <input type="text">
+          <input type="submit" id="submit-search">
+          <ul></ul>
+        `
+      )
+      $("#submit-search").click(() => queryWikipedia($("input[type='text']").val() ));
+    };
+
+    const addNewArticle = (id, title, snippet) => {
+      const liElement = $("<li></li>");
+
+      liElement.append(
+        `
+          <p><span>${id} - <b>${title}</b> </span></p>
+          <p>${snippet}</p>
+        `
+      );
+
+      $("ul").append(liElement);
+    }
+
+    const queryWikipedia = (search) => {
+      const dataObject = {
+        action: "query",
+        list: "search",
+        srsearch: search,
+        format: "json",
+      }
+
+      $.ajax({
+        url: "https://en.wikipedia.org/w/api.php" + "?origin=*",
+        data: dataObject,
+        success: (response) => {
+
+          for (let data = 0; data < response.query.search.length; data++) {
+            ({ pageid, title, snippet } = response.query.search[data]);
+            addNewArticle(pageid, title, snippet);
+          };
+        }
+  
+      });
+    };
+
+    $(document).ready(() => {
+      createSearchForm();
+    })
+
+  </script>
+
+</body>
+
+</html>
