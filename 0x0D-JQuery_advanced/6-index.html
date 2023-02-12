@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+    integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous">
+    </script>
+
+  <title>6. Val, before, and prepend functions</title>
+
+</head>
+
+<body>
+
+  <script type="application/javascript">
+
+    $().ready(function () {
+
+      $.createFamilyTree = function() {
+        $("body").append("<table></table>");
+        $("table").append($("<thead></thead>").append($("<th></th>").text("Firstname"), 
+                                                      $("<th></th>").text("Lastname")));
+        $("table").append("<tbody></tbody>");
+      }
+
+      $.addNewMember = function(firstName, lastName, position) {
+        if (position === "before") {
+          $("tbody")
+            .prepend($("<tr></tr>").append($("<td></td>").text(firstName),
+                                            $("<td></td>").text(lastName),
+                                            $("<td></td>").text("(x)")
+                                              .css({
+                                                "background-color": "orange",
+                                                "cursor": "pointer"
+                                              }).click(function() {
+                                                $(this).closest("tr").remove();
+                                              }
+                                              )));
+        } else {
+          $("tbody")
+            .append($("<tr></tr>").append($("<td></td>").text(firstName),
+                                            $("<td></td>").text(lastName),
+                                            $("<td></td>").text("(x)")
+                                              .css({
+                                                "background-color": "orange",
+                                                "cursor": "pointer"
+                                              }).click(function() {
+                                                $(this).closest("tr").remove();
+                                              }
+                                              )));
+        }
+      }
+
+      $.createForm = function() {
+      $("table").before($("<input>", { type: "text" }).css("margin-right", "5px"));
+      $("table").before($("<input>", { type: "text" }).css("margin-right", "5px"));
+      $("table").before($("<select></select>")
+                  .append($("<option></option>", { value: "before" }).text("Before"),
+                          $("<option></option>", { value: "after" }).text("After")));
+      $("table").before($("<input></input>", { type: "submit" })
+        .click(function() {
+
+        const firstNameValue = $("input").val();
+        const lastNameValue = $("input:nth-of-type(2)").val();
+        const selectedPosition = $("option:selected").val();
+  
+        $.addNewMember(firstNameValue, lastNameValue, selectedPosition);
+
+      }).css("margin-left", "5px"));
+    }
+
+    });
+
+    $(document).ready(() => {
+        $.createFamilyTree();
+        $.createForm();
+    })
+
+  </script>
+</body>
+
+</html>
