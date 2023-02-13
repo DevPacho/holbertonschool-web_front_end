@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <!-- [CHANGED] Current JQuery version that supports AJAX correctly -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+    </script>
+
+  <title>10. Another Get API</title>
+
+</head>
+
+<body>
+
+  <script type="application/javascript">
+
+    const addRowPost = (data) => {
+      $("body").append(`<p id="row-${data.id}"><span>(delete)</span><span>Post created with id ${data.id}, title: ${data.title}, author: ${data.author}</span></p>`);
+      $(`#row-${data.id} span:first-child`).click(() => { deletePost(data.id) }).css({
+        "color": "red",
+        "padding-right": "5px",
+        "cursor": "pointer",
+      });
+    }
+
+    const listPosts = () => {
+      $.get("http://localhost:3000/posts", (response) => {
+        for (let data = 0; data < response.length; data++) {
+          addRowPost(response[data]);
+        }
+      })
+        .fail(() => alert("Server Error"));
+    }
+
+    const buildForm = () => {
+      $("body").append(
+        `
+          <form>
+            <div>
+              <label for="author">Author</label>
+              <input type="text" id="author" />
+            </div>
+            <div>
+              <label for="title" id="title-label">Title</label>
+              <textarea id="title"></textarea>
+            </div>
+            <input type="submit" value="Submit" />
+          </form>
+        `
+      );
+
+      $("#author").css("margin-bottom", "10px");
+      $("input[type='submit']").css("margin-top", "10px");
+
+      $("input[type='submit']").click(() => {
+        sendForm();
+      })
+    }
+
+    const sendForm = () => {
+      $("form").after("About to send the query to the API");
+      const inputValues = {
+        title: $("#title").val(),
+        author: $("#author").val()
+      }
+
+      $.post("http://localhost:3000/posts", inputValues)
+        .done(() => {
+          addRowPost(inputValues);
+        })
+        .fail(() => alert("Error sending the POST query"));
+
+    }
+
+    const deletePost = (id) => {
+      $.ajax({
+        url: `http://localhost:3000/posts/${id}`,
+        type: "DELETE",
+
+        success: () => {
+          $(`#row-${id}`).remove();
+        },
+      })
+        .fail(() => alert("Post was not deleted"));
+    }
+
+    $(document).ready(() => {
+      listPosts();
+      buildForm();
+    })
+
+  </script>
+
+</body>
+
+</html>
