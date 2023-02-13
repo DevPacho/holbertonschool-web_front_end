@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Why are you reading this?",
+      "author": "DevPacho"
+    },
+    {
+      "id": 2,
+      "title": "Why jQuery?",
+      "author": "Bryant Myers"
+    },
+    {
+      "id": 3,
+      "title": "Use React instead",
+      "author": "Aslam"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "Not JQuery",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "Holbies"
+  }
+}
