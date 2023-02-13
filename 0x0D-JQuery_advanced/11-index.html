@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <!-- [CHANGED] Current JQuery version that supports AJAX correctly -->
+  <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous">
+  </script>
+
+  <title>10. Another Get API</title>
+
+</head>
+
+<body>
+
+  <script type="application/javascript">
+
+    const addRowPost = (data) => {
+      $("body").append(`<p><span>Post created with id ${data.id}, title: ${data.title}, author: ${data.author}</span></p>`);
+    }
+
+    const listPosts = () => {
+      $.get("http://localhost:3000/posts", (response) => {
+        for (let data = 0; data < response.length; data++) {
+          addRowPost(response[data]);
+        }
+      })
+        .fail(() => alert("Server Error"));
+    }
+
+    const buildForm = () => {
+      $("body").append(
+        `
+          <form>
+            <div>
+              <label for="author">Author</label>
+              <input type="text" id="author" />
+            </div>
+            <div>
+              <label for="title" id="title-label">Title</label>
+              <textarea id="title"></textarea>
+            </div>
+            <input type="submit" value="Submit" />
+          </form>
+        `
+      );
+
+      $("#author").css("margin-bottom", "10px");
+      $("input[type='submit']").css("margin-top", "10px");
+
+      $("input[type='submit']").click(() => {
+        sendForm();
+      })
+    }
+
+    const sendForm = () => {
+      $("form").after("About to send the query to the API");
+      const inputValues = {
+        title: $("#title").val(),
+        author: $("#author").val()
+      }
+
+      $.post("http://localhost:3000/posts", inputValues)
+        .done(() => {
+          addRowPost(inputValues);
+        })
+        .fail(() => alert("Error sending the POST query"));
+
+      }
+
+    $(document).ready(() => {
+      listPosts();
+      buildForm();
+    })
+
+  </script>
+
+</body>
+
+</html>
