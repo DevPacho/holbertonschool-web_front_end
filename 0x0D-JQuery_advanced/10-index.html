@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <!-- [CHANGED] Current JQuery version that supports AJAX correctly -->
+  <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous">
+  </script>
+
+  <title>10. Another Get API</title>
+
+</head>
+
+<body>
+
+  <script type="application/javascript">
+
+    const addRowPost = (data) => {
+      $("body").append(`<p><span>Post created with id ${data.id}, title: ${data.title}, author: ${data.author}</span></p>`);
+    }
+
+    const listPosts = () => {
+      $.get("http://localhost:3000/posts", (response) => {
+        for (let data = 0; data < response.length; data++) {
+          addRowPost(response[data]);
+        }
+      })
+        .fail(() => alert("Server Error"));
+    }
+
+    $(document).ready(() => {
+      listPosts();
+    })
+
+  </script>
+
+</body>
+
+</html>
