@@ -35,5 +35,5 @@ if (typeof(Storage) !== "undefined") {
   createStore();
   displayCart();
 } else {
-  alert("Sorry, your browser does not support Web storage. Try again with a better one")
+  alert("Sorry, your browser does not support Web storage. Try again with a better one");
 }
