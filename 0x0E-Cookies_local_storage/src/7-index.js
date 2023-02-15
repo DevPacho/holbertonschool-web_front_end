@@ -78,7 +78,7 @@ const displayCart = () => {
 
 const updateCart = () => {
 
-  // Párchese que esta última task si estuvo tiesa rey 🤣
+  // Párchese que esta última task si estuvo muy tiesa rey jaja 🤣
 
   const cartContent = getCartFromStorage();
   const divCart = document.getElementById("div-cart");
