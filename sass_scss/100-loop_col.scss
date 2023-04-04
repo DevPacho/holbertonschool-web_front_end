@@ -1,0 +1,9 @@
+/* Practicing for loop and operators */
+
+$columns: 4;
+
+@for $index from 1 through $columns {
+    .col-#{$index} {
+      width: (100% / $index);
+  }
+}
