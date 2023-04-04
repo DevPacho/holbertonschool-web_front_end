@@ -1,0 +1,9 @@
+/* Nesting concept in childs */
+
+body {
+  color: #3D3D3D;
+
+  > .red {
+    color: #FF0000;
+  }
+}
